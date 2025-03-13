@@ -65,7 +65,7 @@ public class SwingMain {
 	private void initialize() {
 		frmGestorDeBiblioteca = new JFrame();
 		frmGestorDeBiblioteca.getContentPane().setBackground(SystemColor.controlHighlight);
-		frmGestorDeBiblioteca.setTitle("LOGIN");
+		frmGestorDeBiblioteca.setTitle("Login Biblioteca");
 		frmGestorDeBiblioteca.setBounds(0, 0, 287, 185);
 		frmGestorDeBiblioteca.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 		
