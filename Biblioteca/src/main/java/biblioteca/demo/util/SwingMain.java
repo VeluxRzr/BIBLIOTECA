@@ -68,7 +68,7 @@ public class SwingMain {
 		frmGestorDeBiblioteca.setTitle("Login Biblioteca");
 		frmGestorDeBiblioteca.setBounds(0, 0, 287, 185);
 		frmGestorDeBiblioteca.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-		
+		frmGestorDeBiblioteca.setBounds(0, 0, 900, 400);
 		JLabel lblNewLabel = new JLabel("Usuario");
 		
 		JTextPane textPane = new JTextPane();
@@ -78,6 +78,11 @@ public class SwingMain {
 		JTextPane textPane_1 = new JTextPane();
 		
 		JButton btnNewButton = new JButton("Aceptar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				BibliotecaView bibliotecaVista = new BibliotecaView(); 
+			}
+		});
 		GroupLayout groupLayout = new GroupLayout(frmGestorDeBiblioteca.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)

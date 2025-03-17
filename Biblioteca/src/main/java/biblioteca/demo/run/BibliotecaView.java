@@ -19,14 +19,12 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.SystemColor;
+import javax.swing.*;
+import java.awt.*;
 
 public class BibliotecaView {
 
 	protected JFrame frmBiblioteca;
-	/**
-	 * @wbp.nonvisual location=-10,19
-	 */
-	private final JPanel panel = new JPanel();
 	
 	
 	public BibliotecaView() {
@@ -34,16 +32,16 @@ public class BibliotecaView {
 	}
 
 	private void initialice() {
-		panel.setBackground(new Color(91, 181, 200));
 
 		frmBiblioteca = new JFrame();
 		frmBiblioteca.getContentPane().setBackground(SystemColor.controlHighlight);
 		frmBiblioteca.setTitle("GESTION DE BIBLIOTECA");
+		frmBiblioteca.setBounds(0, 0, 900, 400);
 		
-		JButton btnNewButton = new JButton("PRESTAMO LIBRO ");
+       	JButton btnNewButton = new JButton("PRESTAMO LIBRO ");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				PrestamoView prestamoViewVista = new PrestamoView();
 			}
 		});
 		btnNewButton.setFont(new Font("Segoe UI Semibold", Font.BOLD | Font.ITALIC, 14));
@@ -51,20 +49,23 @@ public class BibliotecaView {
 		JButton btnNewButton_2 = new JButton("GESTION DE SOCIOS");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				SocioView socioViewVista = new SocioView();
 			}
 		});
-		btnNewButton_2.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD | Font.ITALIC, 14));
+		btnNewButton_2.setFont(new Font("Segoe UI Semibold", Font.BOLD | Font.ITALIC, 14));
 		
 		JButton btnNewButton_3 = new JButton("GESTION DE LIBROS");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				LibroView libroViewVista = new LibroView();
 			}
 		});
-		btnNewButton_3.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD | Font.ITALIC, 14));
+		btnNewButton_3.setFont(new Font("Segoe UI Semibold", Font.BOLD | Font.ITALIC, 14));
 		
 		JButton btnNewButton_4 = new JButton("Cerrar Sesion");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+		
 			}
 		});
 		btnNewButton_4.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 11));
@@ -74,31 +75,33 @@ public class BibliotecaView {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(10)
+							.addContainerGap()
 							.addComponent(btnNewButton_4, GroupLayout.PREFERRED_SIZE, 105, GroupLayout.PREFERRED_SIZE))
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(125)
-							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-								.addComponent(btnNewButton_2, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 177, GroupLayout.PREFERRED_SIZE)
-								.addComponent(btnNewButton_3, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 177, GroupLayout.PREFERRED_SIZE)))
+							.addGap(350)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(btnNewButton_2, GroupLayout.PREFERRED_SIZE, 177, GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnNewButton_3, GroupLayout.PREFERRED_SIZE, 177, GroupLayout.PREFERRED_SIZE)))
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(138)
+							.addGap(362)
 							.addComponent(btnNewButton)))
-					.addContainerGap(132, Short.MAX_VALUE))
+					.addContainerGap(357, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(86)
+					.addGap(100)
 					.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGap(18)
 					.addComponent(btnNewButton_2, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGap(18)
 					.addComponent(btnNewButton_3, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
-					.addGap(50)
-					.addComponent(btnNewButton_4))
+					.addGap(122)
+					.addComponent(btnNewButton_4)
+					.addContainerGap())
 		);
 		frmBiblioteca.getContentPane().setLayout(groupLayout);
 		frmBiblioteca.getContentPane().setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{btnNewButton, btnNewButton_2, btnNewButton_3, btnNewButton_4}));
+		frmBiblioteca.setVisible(true);
 	}	
 }

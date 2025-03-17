@@ -11,11 +11,17 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Color;
-import java.awt.SystemColor; 
+import java.awt.SystemColor;
+import javax.swing.JSeparator;
+import javax.swing.JSlider;
+import javax.swing.JScrollBar;
+import net.miginfocom.swing.MigLayout;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent; 
 
 public class LibroView {
 
-protected JFrame frmBiblioteca;
+protected JFrame frmLibro;
 private JTable table;
 	
 	
@@ -25,9 +31,10 @@ private JTable table;
 
 	private void initialice() {
 
-		frmBiblioteca = new JFrame();
-		frmBiblioteca.getContentPane().setBackground(SystemColor.controlHighlight);
-		frmBiblioteca.setTitle("LIBRO");
+		frmLibro = new JFrame();
+		frmLibro.getContentPane().setBackground(SystemColor.controlHighlight);
+		frmLibro.setTitle("LIBRERIA");
+		frmLibro.setBounds(0, 0, 900, 400);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setToolTipText("");
@@ -60,87 +67,38 @@ private JTable table;
 		
 		JLabel lblNewLabel_3 = new JLabel("Edicion");
 		
-		JButton btnNewButton_4 = new JButton("Volver a Menu");
+		JButton btnNewButton_4 = new JButton("Sailr");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			BibliotecaView BibliotecaViewVista = new BibliotecaView();
+			}
+		});
 		
 		JTextPane textPane_2_1 = new JTextPane();
 		
 		JTextPane textPane_2_2 = new JTextPane();
 		
 		JTextPane textPane_2_3 = new JTextPane();
-		GroupLayout groupLayout = new GroupLayout(frmBiblioteca.getContentPane());
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(51)
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(btnNewButton)
-								.addComponent(btnNewButton_1)
-								.addComponent(btnNewButton_2, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE))
-							.addGap(68)
-							.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 201, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(161)
-							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(textPane_2_1, GroupLayout.PREFERRED_SIZE, 183, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(21)
-							.addComponent(btnNewButton_4, GroupLayout.PREFERRED_SIZE, 109, GroupLayout.PREFERRED_SIZE)
-							.addGap(31)
-							.addComponent(lblNewLabel_3, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(textPane_2, GroupLayout.PREFERRED_SIZE, 183, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(161)
-							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-								.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE))
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(textPane_2_2, GroupLayout.PREFERRED_SIZE, 183, GroupLayout.PREFERRED_SIZE)
-								.addComponent(textPane_2_3, GroupLayout.PREFERRED_SIZE, 183, GroupLayout.PREFERRED_SIZE))))
-					.addGap(205))
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.TRAILING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(26)
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addGroup(groupLayout.createSequentialGroup()
-									.addGap(12)
-									.addComponent(btnNewButton)
-									.addGap(13)
-									.addComponent(btnNewButton_1)
-									.addGap(11)
-									.addComponent(btnNewButton_2))
-								.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 105, GroupLayout.PREFERRED_SIZE))
-							.addGap(19)
-							.addComponent(textPane_2_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addComponent(lblNewLabel))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-						.addComponent(textPane_2_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNewLabel_1))
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addPreferredGap(ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-							.addComponent(lblNewLabel_2)
-							.addGap(8))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(textPane_2_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)))
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-							.addComponent(btnNewButton_4)
-							.addComponent(lblNewLabel_3))
-						.addComponent(textPane_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(11))
-		);
-		frmBiblioteca.getContentPane().setLayout(groupLayout);
+		
+		JScrollBar scrollBar = new JScrollBar();
+		scrollPane.setRowHeaderView(scrollBar);
+		
+		JScrollBar scrollBar_1 = new JScrollBar();
+		scrollPane.setColumnHeaderView(scrollBar_1);
+		frmLibro.getContentPane().setLayout(new MigLayout("", "[53px][42px][46px][267px]", "[37px][11px][23px][11px][23px][20px][20px][20px][23px]"));
+		frmLibro.getContentPane().add(btnNewButton_1, "cell 0 2 3 1,alignx center,aligny top");
+		frmLibro.getContentPane().add(btnNewButton_2, "cell 0 4 3 1,alignx center,aligny top");
+		frmLibro.getContentPane().add(btnNewButton, "cell 0 0 3 1,alignx center,aligny bottom");
+		frmLibro.getContentPane().add(lblNewLabel, "cell 2 5,growx,aligny bottom");
+		frmLibro.getContentPane().add(lblNewLabel_1, "cell 2 6,growx,aligny bottom");
+		frmLibro.getContentPane().add(btnNewButton_4, "cell 0 8,alignx left,aligny top");
+		frmLibro.getContentPane().add(lblNewLabel_3, "cell 2 8,growx,aligny center");
+		frmLibro.getContentPane().add(lblNewLabel_2, "cell 2 7,growx,aligny bottom");
+		frmLibro.getContentPane().add(scrollPane, "cell 3 0 1 5,grow");
+		frmLibro.getContentPane().add(textPane_2_2, "cell 3 6,growx,aligny top");
+		frmLibro.getContentPane().add(textPane_2_1, "cell 3 5,growx,aligny top");
+		frmLibro.getContentPane().add(textPane_2_3, "cell 3 7,growx,aligny top");
+		frmLibro.getContentPane().add(textPane_2, "cell 3 8,growx,aligny top");
+		frmLibro.setVisible(true);
 	}
 }
