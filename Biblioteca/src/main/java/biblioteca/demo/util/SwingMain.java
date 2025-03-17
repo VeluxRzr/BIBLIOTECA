@@ -126,10 +126,10 @@ public class SwingMain {
 		);
 		frmGestorDeBiblioteca.getContentPane().setLayout(groupLayout);
 		
-		//Database db = new Database(); //creo la base de datos de prueba
+		Database db = new Database(); //creo la base de datos de prueba
 		
-		//db.createDatabase(false); //le paso el valor falso porque considero que no esta creada aun
-		//db.loadDatabase(); //cargo datos de prueba
+		db.createDatabase(false); //le paso el valor falso porque considero que no esta creada aun
+		db.loadDatabase(); //cargo datos de prueba
 		
 	}
 		
