@@ -41,6 +41,7 @@ private JTextPane textPane, textPane_1, textPane_2, textPane_3, textPane_4;
 		frmSocio.setTitle("SOCIOS");
 		frmSocio.getContentPane().setLayout(new MigLayout("", "[][][][grow]", "[grow][grow][grow][grow][grow][][][][][][][][][][][][][][][][][][][][][grow][][][][][][][][][][][]"));
 		frmSocio.setBounds(0, 0, 900, 400);
+		frmSocio.setLocationRelativeTo(null);
 		
 		JLabel lblNewLabel = new JLabel("Nombre");
 		frmSocio.getContentPane().add(lblNewLabel, "cell 0 0");
@@ -84,7 +85,7 @@ private JTextPane textPane, textPane_1, textPane_2, textPane_3, textPane_4;
 			new Object[][] {
 			},
 			new String[] {
-				"Nombre", "Apellidos", "DNI", "Fecha de nacimiento", "Num. Socio", 
+					"Num. Socio", "Nombre", "Apellidos", "DNI", "Fecha de nacimiento" 
 			}
 		));
 		table.getColumnModel().getColumn(2).setPreferredWidth(87);
@@ -103,10 +104,11 @@ private JTextPane textPane, textPane_1, textPane_2, textPane_3, textPane_4;
 		JButton btnNewButton_2 = new JButton("Modificar");
 		frmSocio.getContentPane().add(btnNewButton_2, "cell 0 10");
 		
-		JButton btnNewButton_3 = new JButton("Salir");
+		JButton btnNewButton_3 = new JButton("Volver a Menu");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			BibliotecaView bibliotecaViewVista = new BibliotecaView();
+			frmSocio.dispose();
+				BibliotecaView bibliotecaViewVista = new BibliotecaView();
 			}
 		});
 		frmSocio.getContentPane().add(btnNewButton_3, "cell 0 31");

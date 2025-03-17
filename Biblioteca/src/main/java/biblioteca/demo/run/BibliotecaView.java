@@ -37,10 +37,11 @@ public class BibliotecaView {
 		frmBiblioteca.getContentPane().setBackground(SystemColor.controlHighlight);
 		frmBiblioteca.setTitle("GESTION DE BIBLIOTECA");
 		frmBiblioteca.setBounds(0, 0, 900, 400);
-		
+		frmBiblioteca.setLocationRelativeTo(null);
        	JButton btnNewButton = new JButton("PRESTAMO LIBRO ");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frmBiblioteca.dispose();
 				PrestamoView prestamoViewVista = new PrestamoView();
 			}
 		});
@@ -49,6 +50,7 @@ public class BibliotecaView {
 		JButton btnNewButton_2 = new JButton("GESTION DE SOCIOS");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frmBiblioteca.dispose();
 				SocioView socioViewVista = new SocioView();
 			}
 		});
@@ -57,6 +59,7 @@ public class BibliotecaView {
 		JButton btnNewButton_3 = new JButton("GESTION DE LIBROS");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frmBiblioteca.dispose();
 				LibroView libroViewVista = new LibroView();
 			}
 		});
@@ -65,7 +68,8 @@ public class BibliotecaView {
 		JButton btnNewButton_4 = new JButton("Cerrar Sesion");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-		
+				frmBiblioteca.dispose();
+				
 			}
 		});
 		btnNewButton_4.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 11));
