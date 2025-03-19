@@ -11,6 +11,10 @@ import java.awt.event.ActionEvent;
 import biblioteca.demo.run.*;
 import java.awt.BorderLayout;
 import net.miginfocom.swing.MigLayout;
+import biblioteca.demo.run.BibliotecaController;
+import biblioteca.demo.run.BibliotecaModel;
+import biblioteca.demo.run.BibliotecaView;
+
 import java.awt.Color;
 import javax.swing.UIManager;
 import java.awt.SystemColor;
@@ -37,7 +41,6 @@ public class SwingMain {
 
 	private JFrame frmGestorDeBiblioteca;
 	private JPasswordField passwordField;
-
 	/**
 	 * Launch the application.
 	 */
@@ -83,8 +86,9 @@ public class SwingMain {
 		JButton btnNewButton = new JButton("Aceptar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				BibliotecaController controller = new BibliotecaController();
+			controller.setVistaModel(new BibliotecaView(controller), new BibliotecaModel());
 			frmGestorDeBiblioteca.dispose();
-			BibliotecaView bibliotecaViewVista = new BibliotecaView();
 			}
 		});
 		GroupLayout groupLayout = new GroupLayout(frmGestorDeBiblioteca.getContentPane());

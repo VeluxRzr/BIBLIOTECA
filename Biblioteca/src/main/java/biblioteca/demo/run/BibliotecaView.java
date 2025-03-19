@@ -18,6 +18,8 @@ import javax.swing.JTable;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.table.DefaultTableModel;
+
 import java.awt.SystemColor;
 import javax.swing.*;
 import java.awt.*;
@@ -25,7 +27,15 @@ import java.awt.*;
 public class BibliotecaView {
 
 	protected JFrame frmBiblioteca;
+	private BibliotecaController controller;
 	
+	 public BibliotecaView(BibliotecaController controlador) {
+			
+			initialize(controlador);
+		} 
+
+		private void initialize(BibliotecaController controlador) {
+		}
 	
 	public BibliotecaView() {
 		initialice();
@@ -107,5 +117,8 @@ public class BibliotecaView {
 		frmBiblioteca.getContentPane().setLayout(groupLayout);
 		frmBiblioteca.getContentPane().setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{btnNewButton, btnNewButton_2, btnNewButton_3, btnNewButton_4}));
 		frmBiblioteca.setVisible(true);
-	}	
+	}
+	 public JFrame getFrame() {
+	        return frmBiblioteca;
+	 }
 }
