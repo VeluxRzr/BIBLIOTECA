@@ -24,6 +24,7 @@ import java.awt.SystemColor;
 import javax.swing.*;
 import java.awt.*;
 
+
 public class BibliotecaView {
 
 	protected JFrame frmBiblioteca;
@@ -36,13 +37,13 @@ public class BibliotecaView {
 
 		private void initialize(BibliotecaController controlador) {
 		}
-	
-	public BibliotecaView() {
-		initialice();
-	}
+		
+		public BibliotecaView() {
+		    initialice();
+		}
 
 	private void initialice() {
-
+	if (frmBiblioteca == null) {
 		frmBiblioteca = new JFrame();
 		frmBiblioteca.getContentPane().setBackground(SystemColor.controlHighlight);
 		frmBiblioteca.setTitle("GESTION DE BIBLIOTECA");
@@ -118,7 +119,8 @@ public class BibliotecaView {
 		frmBiblioteca.getContentPane().setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{btnNewButton, btnNewButton_2, btnNewButton_3, btnNewButton_4}));
 		frmBiblioteca.setVisible(true);
 	}
-	 public JFrame getFrame() {
+	
+	public JFrame getFrame() {
 	        return frmBiblioteca;
 	 }
 }

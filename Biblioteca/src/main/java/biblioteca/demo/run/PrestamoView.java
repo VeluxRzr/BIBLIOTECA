@@ -2,6 +2,8 @@ package biblioteca.demo.run;
 
 import javax.swing.JFrame;
 import net.miginfocom.swing.MigLayout;
+import biblioteca.demo.run.BibliotecaController;
+
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -21,24 +23,40 @@ import java.awt.SystemColor;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent; 
 
+
 public class PrestamoView {
 
 protected JFrame frmPrestamo;
 private JTable table;
 private JTable table_1;
-	
-	
+private DefaultTableModel modeloListaSocios;
+private DefaultTableModel modeloListaLibros;
+
 	public PrestamoView() {
 		initialice();
 	}
 
 	private void initialice() {
-
+		
+		modeloListaSocios = new DefaultTableModel(new Object[][] {
+		},
+		new String[] {
+				"Num. Socio", "Nombre", "Apellidos", "DNI"
+			}
+		);
+		modeloListaLibros = new DefaultTableModel(new Object[][] {
+		},
+		new String[] {
+				"ISBN", "Titulo", "Autor", "Edicion"
+			}
+		);
+		
 		frmPrestamo = new JFrame();
 		frmPrestamo.setTitle("PRESTAMO LIBROS");
 		frmPrestamo.setBounds(0, 0, 900, 400);
 		frmPrestamo.getContentPane().setLayout(new MigLayout("", "[][grow][grow][][][][][][111.00,grow][][grow][][][][][][]", "[][grow][][grow][][grow][][][][][][grow][][]"));
 		frmPrestamo.setLocationRelativeTo(null);
+		
 		
 		JLabel lblIsbn = new JLabel("ISBN:");
 		frmPrestamo.getContentPane().add(lblIsbn, "cell 2 0");
@@ -48,7 +66,8 @@ private JTable table_1;
 		
 		JButton btnNewButton = new JButton("Nuevo Prestamo");
 		frmPrestamo.getContentPane().add(btnNewButton, "cell 0 1");
-		
+
+	
 		JTextPane textPane = new JTextPane();
 		frmPrestamo.getContentPane().add(textPane, "cell 2 1 3 1,grow");
 		
@@ -68,13 +87,7 @@ private JTable table_1;
 		frmPrestamo.getContentPane().add(scrollPane_1, "cell 8 5 9 6,grow");
 		
 		table_1 = new JTable();
-		table_1.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-					"Num. Socio", "Nombre", "Apellidos", "DNI"
-			}
-		));
+		table_1.setModel(modeloListaSocios);
 		table_1.getColumnModel().getColumn(0).setPreferredWidth(147);
 		scrollPane_1.setViewportView(table_1);
 		
@@ -82,13 +95,7 @@ private JTable table_1;
 		frmPrestamo.getContentPane().add(scrollPane, "cell 0 5 7 6,grow");
 		
 		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				    "ISBN", "Titulo", "Autor", "Edicion"
-			}
-		));
+		table.setModel(modeloListaLibros);
 		scrollPane.setViewportView(table);
 		
 		JButton btnNewButton_2 = new JButton("Buscar...");

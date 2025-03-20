@@ -86,10 +86,16 @@ public class SwingMain {
 		JButton btnNewButton = new JButton("Aceptar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				BibliotecaController controller = new BibliotecaController();
-			controller.setVistaModel(new BibliotecaView(controller), new BibliotecaModel());
-			frmGestorDeBiblioteca.dispose();
+				BibliotecaView vista = new BibliotecaView(controller);
+				BibliotecaModel modelo = new BibliotecaModel();
+				
+				controller.setVistaModel(vista, modelo);
+				
 			}
+				
+			
 		});
 		GroupLayout groupLayout = new GroupLayout(frmGestorDeBiblioteca.getContentPane());
 		groupLayout.setHorizontalGroup(
