@@ -5,11 +5,11 @@ import java.util.List;
 public class SocioController {
 
 
-	private PrestamoModel model;
-	private PrestamoView view;
+	private SocioModel model;
+	private SocioView view;
 	
 	
-	public void setVistaModel( PrestamoView v , PrestamoModel m) {
+	public void setVistaModel( SocioView v , SocioModel m) {
 		this.model = m;
 		this.view = v;
 		//no hay inicializacion especifica del modelo, solo de la vista
@@ -26,19 +26,19 @@ public class SocioController {
 		
 	//};
 	
-	public PrestamoView getView() {
+	public SocioView getView() {
 		return view;
 	}
 
-	public void setView(PrestamoView view) {
+	public void setView(SocioView view) {
 		this.view = view;
 	}
 
-	public PrestamoModel getModel() {
+	public SocioModel getModel() {
 		return model;
 	}
 
-	public void setModel(PrestamoModel model) {
+	public void setModel(SocioModel model) {
 		this.model = model;
 	}
 

@@ -26,17 +26,16 @@ import java.awt.event.ActionEvent;
 public class LibroView {
 
 protected JFrame frmLibro;
+private LibroController controller;
 private JTable table;
 private JTextPane textPane, textPane_1, textPane_2, textPane_3, textPane_4;	
+private DefaultTableModel ListadoSocios;
 	
-	public LibroView() {
-		initialice();
+	public LibroView(LibroController controller) {
+		initialice(controller);
 	}
 
-	/**
-	 * @wbp.parser.entryPoint
-	 */
-	private void initialice() {
+	private void initialice(LibroController controller) {
 
 		frmLibro = new JFrame();
 		frmLibro.getContentPane().setBackground(SystemColor.controlHighlight);

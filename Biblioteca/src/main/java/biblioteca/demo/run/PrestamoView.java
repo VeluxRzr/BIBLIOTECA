@@ -31,12 +31,13 @@ private JTable table;
 private JTable table_1;
 private DefaultTableModel modeloListaSocios;
 private DefaultTableModel modeloListaLibros;
+private PrestamoController controller;
 
-	public PrestamoView() {
-		initialice();
+	public PrestamoView(PrestamoController controller) {
+		initialice(controller);
 	}
 
-	private void initialice() {
+	private void initialice(PrestamoController controller) {
 		
 		modeloListaSocios = new DefaultTableModel(new Object[][] {
 		},

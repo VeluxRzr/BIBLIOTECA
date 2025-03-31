@@ -13,6 +13,18 @@ import org.eclipse.wb.swing.FocusTraversalOnArray;
 
 import biblioteca.demo.util.Database;
 
+import biblioteca.demo.run.LibroController;
+import biblioteca.demo.run.LibroModel;
+import biblioteca.demo.run.LibroView;
+
+import biblioteca.demo.run.PrestamoController;
+import biblioteca.demo.run.PrestamoModel;
+import biblioteca.demo.run.PrestamoView;
+
+import biblioteca.demo.run.SocioController;
+import biblioteca.demo.run.SocioModel;
+import biblioteca.demo.run.SocioView;
+
 import java.awt.Component;
 import java.awt.Color;
 import javax.swing.JDesktopPane;
@@ -45,11 +57,17 @@ public class BibliotecaView {
 		frmBiblioteca.setTitle("GESTION DE BIBLIOTECA");
 		frmBiblioteca.setBounds(0, 0, 900, 400);
 		frmBiblioteca.setLocationRelativeTo(null);
-       	JButton btnNewButton = new JButton("PRESTAMO LIBRO ");
+       	
+		JButton btnNewButton = new JButton("PRESTAMO LIBRO ");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				PrestamoController controller = new PrestamoController();
+				PrestamoView vista = new PrestamoView(controller);
+				PrestamoModel modelo = new PrestamoModel();
+				
+				controller.setVistaModel(vista, modelo);
 				frmBiblioteca.dispose();
-				PrestamoView prestamoViewVista = new PrestamoView();
 			}
 		});
 		btnNewButton.setFont(new Font("Segoe UI Semibold", Font.BOLD | Font.ITALIC, 14));
@@ -57,8 +75,13 @@ public class BibliotecaView {
 		JButton btnNewButton_2 = new JButton("GESTION DE SOCIOS");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				SocioController controller = new SocioController();
+				SocioView vista = new SocioView(controller);
+				SocioModel modelo = new SocioModel();
+				
+				controller.setVistaModel(vista, modelo);
 				frmBiblioteca.dispose();
-				SocioView socioViewVista = new SocioView();
 			}
 		});
 		btnNewButton_2.setFont(new Font("Segoe UI Semibold", Font.BOLD | Font.ITALIC, 14));
@@ -66,8 +89,13 @@ public class BibliotecaView {
 		JButton btnNewButton_3 = new JButton("GESTION DE LIBROS");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				LibroController controller = new LibroController();
+				LibroView vista = new LibroView(controller);
+				LibroModel modelo = new LibroModel();
+				
+				controller.setVistaModel(vista, modelo);
 				frmBiblioteca.dispose();
-				LibroView libroViewVista = new LibroView();
 			}
 		});
 		btnNewButton_3.setFont(new Font("Segoe UI Semibold", Font.BOLD | Font.ITALIC, 14));

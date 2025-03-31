@@ -30,12 +30,13 @@ public class SocioView {
 protected JFrame frmSocio;
 private JTable table;
 private JTextPane textPane, textPane_1, textPane_2, textPane_3, textPane_4;	
-	
-	public SocioView() {
-		initialice();
+private SocioController controller;
+
+	public SocioView(SocioController controller) {
+		initialice(controller);
 	}
 
-	private void initialice() {
+	private void initialice(SocioController controller) {
 
 		frmSocio = new JFrame();
 		frmSocio.setTitle("SOCIOS");
@@ -165,14 +166,20 @@ private JTextPane textPane, textPane_1, textPane_2, textPane_3, textPane_4;
                     textPane.requestFocus();  // Volver al primer campo (textPane)
                 }
             });
-        }
-
-        public static void main(String[] args) {
-            // Iniciar la vista de socios
-            SwingUtilities.invokeLater(new Runnable() {
-                public void run() {
-                    new SocioView();  // Crear y mostrar la ventana
-                }
-            });
-        }
+            //frmLibro.getContentPane().add(btnEnvioAlmacen, "cell 0 5");
+    		frmSocio.setVisible(true);
+    	}
+    	
+    	public JFrame getFrame() {
+    		return this.frmSocio;
+    	}
+    	
+    	public void rellenaListaArticulos(Object[] rowArticulo) {
+    		
+    		//this.modeloArticulo.addRow(rowArticulo);	
+    		//this.table.setModel(modeloArticulo);
+    		
+    		
+    		
+    		}
     }
