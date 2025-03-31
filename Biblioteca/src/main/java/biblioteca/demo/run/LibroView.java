@@ -153,17 +153,20 @@ private JTextPane textPane, textPane_1, textPane_2, textPane_3, textPane_4;
             	textPane_1.requestFocus(); // Volver al primer campo (textPane)
             }
         });
-    }
-
-    /**
-     * @wbp.parser.entryPoint
-     */
-    public static void main(String[] args) {
-        // Iniciar la vista de socios
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                new SocioView();  // Crear y mostrar la ventana
-            }
-        });
-    }
+        //frmLibro.getContentPane().add(btnEnvioAlmacen, "cell 0 5");
+		frmLibro.setVisible(true);
+	}
+	
+	public JFrame getFrame() {
+		return this.frmLibro;
+	}
+	
+	public void rellenaListaArticulos(Object[] rowArticulo) {
+		
+		//this.modeloArticulo.addRow(rowArticulo);	
+		//this.table.setModel(modeloArticulo);
+		
+		
+		
+		}
 }

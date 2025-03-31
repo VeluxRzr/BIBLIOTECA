@@ -10,6 +10,9 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
 import org.eclipse.wb.swing.FocusTraversalOnArray;
+
+import biblioteca.demo.util.Database;
+
 import java.awt.Component;
 import java.awt.Color;
 import javax.swing.JDesktopPane;
@@ -28,21 +31,14 @@ import java.awt.*;
 public class BibliotecaView {
 
 	protected JFrame frmBiblioteca;
-	private BibliotecaController controller;
 	
-	 public BibliotecaView(BibliotecaController controlador) {
-			
-			initialize(controlador);
-		} 
+	 public BibliotecaView() {
+		// TODO Auto-generated constructor stub
+		initialize();
+	} 
 
-		private void initialize(BibliotecaController controlador) {
-		}
-		
-		public BibliotecaView() {
-		    initialice();
-		}
+	private void initialize() {
 
-	private void initialice() {
 	if (frmBiblioteca == null) {
 		frmBiblioteca = new JFrame();
 		frmBiblioteca.getContentPane().setBackground(SystemColor.controlHighlight);
@@ -118,6 +114,12 @@ public class BibliotecaView {
 		frmBiblioteca.getContentPane().setLayout(groupLayout);
 		frmBiblioteca.getContentPane().setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{btnNewButton, btnNewButton_2, btnNewButton_3, btnNewButton_4}));
 		frmBiblioteca.setVisible(true);
+	
+	Database db = new Database(); //creo la base de datos de prueba
+		
+		db.createDatabase(false); //le paso el valor falso porque considero que no esta creada aun
+		db.loadDatabase(); //cargo datos de prueba
+	}
 	}
 	
 	public JFrame getFrame() {

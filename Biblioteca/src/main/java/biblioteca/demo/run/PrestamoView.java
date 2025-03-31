@@ -2,7 +2,7 @@ package biblioteca.demo.run;
 
 import javax.swing.JFrame;
 import net.miginfocom.swing.MigLayout;
-import biblioteca.demo.run.BibliotecaController;
+import biblioteca.demo.run.PrestamoController;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -118,8 +118,10 @@ private DefaultTableModel modeloListaLibros;
 			}
 		});
 		frmPrestamo.getContentPane().add(btnNewButton_3, "cell 0 13");
-		{
-		frmPrestamo.setVisible(true);	
+		frmPrestamo.setVisible(true);
+		}
+		
+		public JFrame getFrame() {
+			return this.frmPrestamo;
 		}		
 	}
-}

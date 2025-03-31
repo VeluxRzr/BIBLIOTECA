@@ -11,9 +11,6 @@ import java.awt.event.ActionEvent;
 import biblioteca.demo.run.*;
 import java.awt.BorderLayout;
 import net.miginfocom.swing.MigLayout;
-import biblioteca.demo.run.BibliotecaController;
-import biblioteca.demo.run.BibliotecaModel;
-import biblioteca.demo.run.BibliotecaView;
 
 import java.awt.Color;
 import javax.swing.UIManager;
@@ -86,17 +83,9 @@ public class SwingMain {
 		JButton btnNewButton = new JButton("Aceptar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				BibliotecaController controller = new BibliotecaController();
-				BibliotecaView vista = new BibliotecaView(controller);
-				BibliotecaModel modelo = new BibliotecaModel();
-				
-				controller.setVistaModel(vista, modelo);
-				
+				BibliotecaView BibliotecaViewVista = new BibliotecaView();
 			}
-				
-			
-		});
+			});
 		GroupLayout groupLayout = new GroupLayout(frmGestorDeBiblioteca.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -135,13 +124,7 @@ public class SwingMain {
 					.addGap(21))
 		);
 		frmGestorDeBiblioteca.getContentPane().setLayout(groupLayout);
-		
-		Database db = new Database(); //creo la base de datos de prueba
-		
-		db.createDatabase(false); //le paso el valor falso porque considero que no esta creada aun
-		db.loadDatabase(); //cargo datos de prueba
-		
-	}
+		}
 		
 	public JFrame getFrame() { return this.frmGestorDeBiblioteca; }
 	
