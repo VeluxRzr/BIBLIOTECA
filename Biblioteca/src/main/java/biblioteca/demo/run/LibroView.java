@@ -29,7 +29,7 @@ protected JFrame frmLibro;
 private LibroController controller;
 private JTable table;
 private JTextPane textPane, textPane_1, textPane_2, textPane_3, textPane_4;	
-private DefaultTableModel ListadoSocios;
+private DefaultTableModel listadoDeSocios;
 	
 	public LibroView(LibroController controller) {
 		initialice(controller);
@@ -37,6 +37,13 @@ private DefaultTableModel ListadoSocios;
 
 	private void initialice(LibroController controller) {
 
+		listadoDeSocios = new DefaultTableModel(new Object[][] {
+				},
+				new String[] {
+					"New column", "New column", "Edicion", "ISBM", "Autor", "Titulo"
+				}
+			);
+		
 		frmLibro = new JFrame();
 		frmLibro.getContentPane().setBackground(SystemColor.controlHighlight);
 		frmLibro.setTitle("LIBRERIA");
@@ -64,13 +71,7 @@ private DefaultTableModel ListadoSocios;
 		frmLibro.getContentPane().add(scrollPane, "cell 2 0 9 7,grow");
 		
 		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"New column", "New column", "Edicion", "ISBM", "Autor", "Titulo"
-			}
-		));
+		table.setModel(listadoDeSocios);
 		table.getColumnModel().getColumn(2).setPreferredWidth(147);
 		scrollPane.setRowHeaderView(table);
 		

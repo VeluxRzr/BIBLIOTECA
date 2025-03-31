@@ -31,6 +31,7 @@ protected JFrame frmSocio;
 private JTable table;
 private JTextPane textPane, textPane_1, textPane_2, textPane_3, textPane_4;	
 private SocioController controller;
+private DefaultTableModel listadoDeSocios;
 
 	public SocioView(SocioController controller) {
 		initialice(controller);
@@ -38,6 +39,13 @@ private SocioController controller;
 
 	private void initialice(SocioController controller) {
 
+		listadoDeSocios = new DefaultTableModel(new Object[][] {
+				},
+				new String[] {
+						"Num. Socio", "Nombre", "Apellidos", "DNI", "Fecha de nacimiento" 
+				}
+			);
+		
 		frmSocio = new JFrame();
 		frmSocio.setTitle("SOCIOS");
 		frmSocio.getContentPane().setLayout(new MigLayout("", "[][][][grow]", "[grow][grow][grow][grow][grow][][][][][][][][][][][][][][][][][][][][][grow][][][][][][][][][][][]"));
@@ -82,13 +90,7 @@ private SocioController controller;
 		frmSocio.getContentPane().add(scrollPane, "cell 3 7 1 27,grow");
 		
 		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-					"Num. Socio", "Nombre", "Apellidos", "DNI", "Fecha de nacimiento" 
-			}
-		));
+		table.setModel(listadoDeSocios);
 		table.getColumnModel().getColumn(2).setPreferredWidth(87);
 		scrollPane.setViewportView(table);
 		
