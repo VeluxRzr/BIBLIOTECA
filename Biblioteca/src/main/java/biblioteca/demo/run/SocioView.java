@@ -24,6 +24,8 @@ import javax.swing.KeyStroke;
 import net.miginfocom.swing.MigLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class SocioView {
 
@@ -32,6 +34,12 @@ private JTable table;
 private JTextPane textPane, textPane_1, textPane_2, textPane_3, textPane_4;	
 private SocioController controller;
 private DefaultTableModel listadoDeSocios;
+private JButton AniadirSocio;
+private JTextPane nombre;
+private JTextPane apellidos;
+private JTextPane dni;
+private JTextPane fechaNacimiento;
+private JTextPane numeroSocio;
 
 	public SocioView(SocioController controller) {
 		initialice(controller);
@@ -54,31 +62,26 @@ private DefaultTableModel listadoDeSocios;
 		
 		JLabel lblNewLabel = new JLabel("Nombre");
 		frmSocio.getContentPane().add(lblNewLabel, "cell 0 0");
-		
-	    textPane = new JTextPane();
+		textPane = new JTextPane();
 		frmSocio.getContentPane().add(textPane, "cell 3 0,grow");
 		
 		JLabel lblNewLabel_1 = new JLabel("Apellidos");
 		frmSocio.getContentPane().add(lblNewLabel_1, "cell 0 1");
-		
 		textPane_1 = new JTextPane();
 		frmSocio.getContentPane().add(textPane_1, "cell 3 1,grow");
 		
 		JLabel lblNewLabel_2 = new JLabel("DNI");
 		frmSocio.getContentPane().add(lblNewLabel_2, "cell 0 2");
-		
 		textPane_2 = new JTextPane();
 		frmSocio.getContentPane().add(textPane_2, "cell 3 2,grow");
 		
 		JLabel lblNewLabel_3 = new JLabel("Fecha de Nacimiento");
 		frmSocio.getContentPane().add(lblNewLabel_3, "cell 0 3");
-		
 		textPane_3 = new JTextPane();
 		frmSocio.getContentPane().add(textPane_3, "cell 3 3,grow");
 		
 		JLabel lblNewLabel_4 = new JLabel("Num. Socio");
 		frmSocio.getContentPane().add(lblNewLabel_4, "cell 0 4");
-		
 		textPane_4 = new JTextPane();
 		frmSocio.getContentPane().add(textPane_4, "cell 3 4,grow");
 		
@@ -99,6 +102,10 @@ private DefaultTableModel listadoDeSocios;
 		
 		// Botones
 		JButton btnNewButton = new JButton("Añadir Socio");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		frmSocio.getContentPane().add(btnNewButton, "cell 0 8");
 		
 		JButton btnNewButton_1 = new JButton("Borrar socio");
@@ -179,9 +186,27 @@ private DefaultTableModel listadoDeSocios;
     	public void rellenaListaArticulos(Object[] rowArticulo) {
     		
     		//this.modeloArticulo.addRow(rowArticulo);	
-    		//this.table.setModel(modeloArticulo);
-    		
-    		
-    		
-    		}
+    
+    	}//this.table.setModel(modeloArticulo);
+    private void agregarSocio() {
+    	        try {
+    	            // Obtener los valores de los campos de texto
+    	            int numeroSocio = Integer.parseInt(textPane_4.getText());
+    	            String nombre = textPane.getText();
+    	            String apellidos = textPane_1.getText();
+    	            String dni = textPane_2.getText();
+    	            
+    	            // Parsear la fecha en el formato adecuado (dd/MM/yyyy)
+    	            String textPane_3Str = textPane_3.getText();
+    	            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    	            Date fechaNacimiento = sdf.parse(textPane_3Str);
+    	            
+    	            // Llamar al controlador para agregar el socio
+    	            controller.AniadirSocio(numeroSocio, nombre, apellidos, dni, new java.sql.Date(fechaNacimiento.getTime()));
+    	            
+    	        } catch (Exception ex) {
+    	            JOptionPane.showMessageDialog(frmSocio, "Error al agregar el socio. Verifica los datos.");
+    	        }
     }
+ }
+    
