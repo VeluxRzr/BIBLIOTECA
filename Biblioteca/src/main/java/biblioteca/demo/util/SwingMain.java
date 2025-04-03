@@ -61,6 +61,7 @@ public class SwingMain {
 		initialize();
 	}
 
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */
