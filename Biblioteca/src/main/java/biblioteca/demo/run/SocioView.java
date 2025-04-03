@@ -202,7 +202,7 @@ private JTextPane numeroSocio;
     	            Date fechaNacimiento = sdf.parse(textPane_3Str);
     	            
     	            // Llamar al controlador para agregar el socio
-    	            controller.AniadirSocio(numeroSocio, nombre, apellidos, dni, new java.sql.Date(fechaNacimiento.getTime()));
+    	            controller.AniadirSoo(numeroSocio, nombre, apellidos, dni, new java.sql.Date(fechaNacimiento.getTime()));
     	            
     	        } catch (Exception ex) {
     	            JOptionPane.showMessageDialog(frmSocio, "Error al agregar el socio. Verifica los datos.");
