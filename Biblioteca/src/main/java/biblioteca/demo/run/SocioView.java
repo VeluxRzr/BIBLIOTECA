@@ -187,26 +187,7 @@ private JTextPane numeroSocio;
     		
     		//this.modeloArticulo.addRow(rowArticulo);	
     
-    	}//this.table.setModel(modeloArticulo);
-    private void agregarSocio() {
-    	        try {
-    	            // Obtener los valores de los campos de texto
-    	            int numeroSocio = Integer.parseInt(textPane_4.getText());
-    	            String nombre = textPane.getText();
-    	            String apellidos = textPane_1.getText();
-    	            String dni = textPane_2.getText();
-    	            
-    	            // Parsear la fecha en el formato adecuado (dd/MM/yyyy)
-    	            String textPane_3Str = textPane_3.getText();
-    	            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-    	            Date fechaNacimiento = sdf.parse(textPane_3Str);
-    	            
-    	            // Llamar al controlador para agregar el socio
-    	            controller.AniadirSoo(numeroSocio, nombre, apellidos, dni, new java.sql.Date(fechaNacimiento.getTime()));
-    	            
-    	        } catch (Exception ex) {
-    	            JOptionPane.showMessageDialog(frmSocio, "Error al agregar el socio. Verifica los datos.");
-    	        }
+
     }
  }
     
